@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Her Zaman Kalbimde</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #jupiter {
+      position: absolute;
+      width: 80px;
+      z-index: 1000;
+      transition: transform 0.4s;
+    }
+    .paw-print {
+      position: absolute;
+      width: 20px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Her zaman kalbimde olacaksın</h1>
+  <div class="poem">
+    <p>Gözlerin dursa da uzak kıyılarda,<br>
+    Bir bakışınla çözülür bütün fırtına.<br>
+    Yanakların, dokunsam bulut gibi,<br>
+    İçimde susar bütün yangınlar.</p>
+
+    <p>Son zamanlarda çok sustuk, çok kırıldık,<br>
+    Sözler kılıç gibi, sessizlik yara…<br>
+    Ama bir gülüşün var — öyle sıcak ki,<br>
+    Bütün kışlar erir bir anda.</p>
+
+    <p>Kavga etsek de, kırık dökük sözler<br>
+    Yıldızlar gibi düşer geceme.<br>
+    Ama sen... gecemde parlayan tek ışıksın,<br>
+    Yıldızlardan değil, kalbimden daha güzelsin.</p>
+
+    <p>Ve bil ki…<br>
+    Seni çok seviyorum.<br>
+    Ve bu, sonsuza kadar sürecek.</p>
+  </div>
+
+  <img id="jupiter" src="img/cat.png" alt="Jüpiter">
+
+  <script>
+    const jupiter = document.getElementById("jupiter");
+    const body = document.body;
+
+    function moveJupiter() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+
+      const paw = document.createElement("img");
+      paw.src = "img/paw.png";
+      paw.className = "paw-print";
+      paw.style.left = `${jupiter.offsetLeft + 30}px`;
+      paw.style.top = `${jupiter.offsetTop + 50}px`;
+      body.appendChild(paw);
+
+      jupiter.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    setInterval(moveJupiter, 2000);
+  </script>
+</body>
+</html>
